@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!--build:css css/styles.min.css-->
-  <link rel="stylesheet" href="css/stylesheet.css">
-  <!--<script>document.documentElement.className = 'js';</script>-->
-  <!--endbuild-->
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<!--build:css css/styles.min.css-->
+		<link rel="stylesheet" href="css/stylesheet.css">
+		<!--<script>document.documentElement.className = 'js';</script>-->
+		<!--endbuild-->
+	</head>
 
-<body class="demo-1 loading">
+	<body class="demo-1 loading">
 		<main id="main">
 			<div class="content content--intro">
 				<div class="content__inner">
@@ -27,22 +27,26 @@
 			</div><!-- /content -->
 			<div class="content content--absolute">
 				<div class="content__inner">
-					<nav class="menu">
-						<a class="menu__item" href="#">Spring/Summer 2018</a>
-						<a class="menu__item" href="#">Autumn/Winter 2018</a>
-					</nav>
-					<div class="big">
-				<h1>Title</h1>		
-					</div>
-				</div>
+					<h1>Title</h1>		
+					<div id="app">
+						<ol>
+							<todo-item
+								v-for="item in groceryList"
+								v-bind:todo="item"
+								v-bind:key="item.id"
+								></todo-item>
+						</ol>
+					</div>				</div>
 			</div>
 		</main>  
-  <!--build:js js/main.min.js -->
-  <script src="js/lib/imagesloaded.min.js"></script>
-  <script src="js/lib/anime.js"></script>
-  <script src="js/lib/charming.min.js"></script>
-  <script src="js/site.min.js"></script>
-  <!-- endbuild -->
-</body>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<!--build:js js/main.min.js -->
+		<script src="js/lib/imagesloaded.min.js"></script>
+		<script src="js/lib/anime.js"></script>
+		<script src="js/lib/charming.min.js"></script>
+		<script src="js/site.min.js"></script>
+		<!-- endbuild -->
+	</body>
 
 </html>
