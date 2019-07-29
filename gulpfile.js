@@ -12,17 +12,16 @@ var runSequence = require('run-sequence');
 var autoprefixer = require('gulp-autoprefixer');
 var jshint       = require('gulp-jshint');
 var notify       = require('gulp-notify');
-var jshint = require('gulp-jshint');
 var webpack = require('webpack-stream');
 var rename       = require('gulp-rename');
 var babel = require('gulp-babel');
 
 // =========================================================
-///  Development Taska  
+///  Development Taska
 // =========================================================
 
 // ========================
-///  Start browserSync Server  
+///  Start browserSync Server
 // ========================
 gulp.task('browserSync', function() {
   browserSync({
@@ -33,10 +32,10 @@ gulp.task('browserSync', function() {
 })
 
 // ========================
-///  Sass  
+///  Sass
 // ========================
 gulp.task('sass', function() {
-  return gulp.src('app/scss/stylesheet.scss') // Centralized stylesheet with imports 
+  return gulp.src('app/scss/stylesheet.scss') // Centralized stylesheet with imports
     .pipe(sass().on('error', sass.logError)) // Passes it through a gulp-sass, log errors to console
     .pipe(autoprefixer({
         browsers: ['last 5 versions'],
@@ -49,7 +48,7 @@ gulp.task('sass', function() {
 })
 
 // ========================
-///  .JS  
+///  .JS
 // ========================
 gulp.task('js', function(){
   var lint = gulp.src('app/js/main.js')
@@ -76,7 +75,7 @@ gulp.task('js', function(){
 
 
 // ========================
-///  Watchers  
+///  Watchers
 // ========================
 gulp.task('watch', function() {
   gulp.watch('app/scss/**/*.scss', ['sass']);
@@ -86,10 +85,10 @@ gulp.task('watch', function() {
 })
 
 // =========================================================
-///  Optimization Tasks  
+///  Optimization Tasks
 // =========================================================
 
-// Optimizing CSS and JavaScript 
+// Optimizing CSS and JavaScript
 gulp.task('useref', function() {
 
   return gulp.src('app/*.html')
@@ -100,7 +99,7 @@ gulp.task('useref', function() {
 });
 
 // ========================
-///  Optomizing Images  
+///  Optomizing Images
 // ========================
 gulp.task('images', function() {
   return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg)')
@@ -112,7 +111,7 @@ gulp.task('images', function() {
 });
 
 // ========================
-///  Copying Fonts  
+///  Copying Fonts
 // ========================
 gulp.task('fonts', function() {
   return gulp.src('app/fonts/**/*')
@@ -120,7 +119,7 @@ gulp.task('fonts', function() {
 })
 
 // ========================
-///  Cleaning  
+///  Cleaning
 // ========================
 gulp.task('clean', function() {
   return del.sync('dist').then(function(cb) {
@@ -133,7 +132,7 @@ gulp.task('clean:dist', function() {
 });
 
 // =========================================================
-///  Build Sequence  
+///  Build Sequence
 // =========================================================
 
 gulp.task('default', function(callback) {

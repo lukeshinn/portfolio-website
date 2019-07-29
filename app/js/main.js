@@ -4,7 +4,7 @@
  *
  * Licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
- * 
+ *
  * Copyright 2017, Codrops
  * http://www.codrops.com
  */
@@ -39,7 +39,7 @@
 			easing: 'easeInOutSine',
 			translateY: '-200vh'
 		});
-		
+
 		anime({
 			targets: DOM.shape,
 			scaleY: [
@@ -54,7 +54,7 @@
 			easing: 'easeOutQuad',
 			d: DOM.path.getAttribute('pathdata:id')
 		});
-		main.classList.add("auto-height")
+		main.classList.add("auto-height");
 	};
 
 	let isActive;
@@ -111,12 +111,12 @@
 }
 
 // =========================================================
-///  Vue  
+///  Vue
 // =========================================================
 Vue.component('todo-item', {
   props: ['todo'],
   template: '<li>{{ todo.text }}</li>'
-})
+});
 
 var app7 = new Vue({
   el: '#app',
@@ -127,7 +127,7 @@ var app7 = new Vue({
       { id: 2, text: 'Whatever else humans are supposed to eat' }
     ]
   }
-})
+});
 
 
 
