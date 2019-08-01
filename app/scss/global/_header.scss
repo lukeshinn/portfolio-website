@@ -1,6 +1,15 @@
 //##############################################################################
 // Header
 //##############################################################################
+#indicator{
+  position: fixed;
+  top:0;
+  left:0;
+  height: 10px;
+  background-color: red;
+  z-index: 999;
+}
+
 .content--intro {
 	display: none;
 }
@@ -200,7 +209,7 @@ main {
 	line-height: 1;
 }
 
-.enter, .explore {    
+.enter, .explore {
 	margin: 6vh 0 0 0;
 	font-size: 1em;
 	letter-spacing: 3px;
@@ -212,7 +221,7 @@ main {
 }
 
 .enter:hover,
-.enter:focus {    
+.enter:focus {
 	color: var(--color-enter);
 }
 
@@ -230,9 +239,7 @@ main {
 	color: var(--color-menu-item);
 }
 
-.content__text a:hover, 
+.content__text a:hover,
 .content__text a:focus {
 	color: var(--color-menu-item-hover);
 }
-
-

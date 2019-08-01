@@ -15,6 +15,7 @@ var notify       = require('gulp-notify');
 var webpack = require('webpack-stream');
 var rename       = require('gulp-rename');
 var babel = require('gulp-babel');
+var eslint = require('gulp-eslint');
 
 // =========================================================
 ///  Development Taska
@@ -52,8 +53,8 @@ gulp.task('sass', function() {
 // ========================
 gulp.task('js', function(){
   var lint = gulp.src('app/js/main.js')
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'));
+    .pipe(eslint());
+    //.pipe(eslint.reporter('default'));
 
   var js = gulp.src('app/js/main.js')
     .pipe(webpack({

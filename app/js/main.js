@@ -113,22 +113,41 @@
 // =========================================================
 ///  Vue
 // =========================================================
-Vue.component('todo-item', {
-  props: ['todo'],
-  template: '<li>{{ todo.text }}</li>'
-});
+/*Vue.component('todo-item', {*/
+  //props: ['todo'],
+  //template: '<li>{{ todo.text }}</li>'
+//});
 
-var app7 = new Vue({
-  el: '#app',
-  data: {
-    groceryList: [
-      { id: 0, text: 'Vegetables' },
-      { id: 1, text: 'Cheese' },
-      { id: 2, text: 'Whatever else humans are supposed to eat' }
-    ]
+//var app7 = new Vue({
+  //el: '#app',
+  //data: {
+    //groceryList: [
+      //{ id: 0, text: 'Vegetables' },
+      //{ id: 1, text: 'Cheese' },
+      //{ id: 2, text: 'Whatever else humans are supposed to eat' }
+    //]
+  //}
+//});
+
+// scroll indicator component
+Vue.component('indicator', {
+  template:'<div id="indicator"></div>',
+  mounted:function(){
+    var vm = this
+    window.addEventListener('scroll', function(e){
+      var scrollPos = window.scrollY
+      var winHeight = window.innerHeight
+      var docHeight = document.documentElement.scrollHeight // instead document.body.clientHeight
+      var perc = 100 * scrollPos / (docHeight - winHeight)
+      vm.$el.style.width = perc + '%'
+    })
+
   }
-});
+})
 
-
+// Vue bootstrap
+new Vue({
+  el:'#app'
+})
 
 Vue.config.devtools = true;
