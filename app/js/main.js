@@ -8,6 +8,87 @@
  * Copyright 2017, Codrops
  * http://www.codrops.com
  */
+
+
+{
+
+  const init = () => {
+
+    const box = document.body.querySelector("div.box")
+    const box2 = document.body.querySelector("div.box2")
+    const box3 = document.body.querySelector("div.box3")
+    let currentState = 0
+
+
+    const animateToNextState = () => {
+
+      var tl = anime.timeline({
+        easing: 'easeInOutBounce',
+        duration: 10000
+      });
+
+      tl
+        .add({
+          targets: box,
+          translateX: 250,
+        })
+        .add({
+          targets: box2,
+          translateX: 250,
+        })
+        .add({
+          targets: box3,
+          translateX: 250,
+        }, '+=1000');
+    }
+
+    animateToNextState()
+
+  };
+
+  init();
+}
+
+
+// =========================================================
+///  Vue
+// =========================================================
+// scroll indicator component
+Vue.component('indicator', {
+  template:'<div id="indicator"></div>',
+  mounted:function(){
+    var vm = this
+    window.addEventListener('scroll', function(e){
+      var scrollPos = window.scrollY
+      var winHeight = window.innerHeight
+      var docHeight = document.documentElement.scrollHeight // instead document.body.clientHeight
+      var perc = 100 * scrollPos / (docHeight - winHeight)
+      vm.$el.style.width = perc + '%'
+    })
+
+    var currentPos = 0;
+    const calculate  = (e) => {
+      currentPos += e.deltaY;
+      vm.$el.style.width = currentPos + '%'
+    };
+
+    window.addEventListener("wheel", (e) => {
+      calculate(e);
+    })
+
+  }
+})
+
+// Vue bootstrap
+new Vue({
+  el:'#app'
+})
+
+Vue.config.devtools = true;
+
+//  Old
+// #####################################
+
 {
   const DOM = {};
   DOM.intro = document.querySelector('.content--intro');
@@ -109,55 +190,3 @@
 
   init();
 }
-
-// =========================================================
-///  Vue
-// =========================================================
-/*Vue.component('todo-item', {*/
-//props: ['todo'],
-//template: '<li>{{ todo.text }}</li>'
-//});
-
-//var app7 = new Vue({
-//el: '#app',
-//data: {
-//groceryList: [
-//{ id: 0, text: 'Vegetables' },
-//{ id: 1, text: 'Cheese' },
-//{ id: 2, text: 'Whatever else humans are supposed to eat' }
-//]
-//}
-//});
-
-// scroll indicator component
-Vue.component('indicator', {
-  template:'<div id="indicator"></div>',
-  mounted:function(){
-    var vm = this
-    window.addEventListener('scroll', function(e){
-      var scrollPos = window.scrollY
-      var winHeight = window.innerHeight
-      var docHeight = document.documentElement.scrollHeight // instead document.body.clientHeight
-      var perc = 100 * scrollPos / (docHeight - winHeight)
-      vm.$el.style.width = perc + '%'
-    })
-
-    var currentPos = 0;
-    const calculate  = (e) => {
-      currentPos += e.deltaY;
-      vm.$el.style.width = currentPos + '%'
-    };
-
-    window.addEventListener("wheel", (e) => {
-      calculate(e);
-    })
-
-  }
-})
-
-// Vue bootstrap
-new Vue({
-  el:'#app'
-})
-
-Vue.config.devtools = true;

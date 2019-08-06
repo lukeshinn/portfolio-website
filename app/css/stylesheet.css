@@ -303,6 +303,46 @@ template {
 [hidden] {
   display: none; }
 
+.loader {
+  display: none;
+  position: fixed;
+  background: black;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999; }
+
+.loader__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  z-index: 10;
+  font-family: Montserrat,sans-serif;
+  font-weight: 900;
+  font-size: calc(1.3rem + 4vw);
+  text-transform: uppercase;
+  -ms-transform-origin: top;
+  transform-origin: top;
+  line-height: .9;
+  color: #fff; }
+
+.loader__text-line {
+  overflow: hidden; }
+  .loader__text-line > div {
+    -ms-transform-origin: center left;
+    transform-origin: center left;
+    opacity: 0; }
+
+.box, .box2, .box3 {
+  width: 100px;
+  height: 100px;
+  background-color: #9D5B75; }
+
 #indicator {
   position: fixed;
   top: 0;
@@ -310,12 +350,6 @@ template {
   height: 10px;
   background-color: red;
   z-index: 999; }
-
-.big {
-  padding: 3000px 40px; }
-
-.auto-height {
-  height: auto; }
 
 *,
 *::after,
@@ -382,38 +416,12 @@ body {
   100% {
     transform: scale3d(1, 1, 1); } }
 
-a {
-  text-decoration: none;
-  color: #5d93d8;
-  color: var(--color-link);
-  outline: none; }
-
-a:hover,
-a:focus {
-  color: #423c2b;
-  color: var(--color-link-hover);
-  outline: none; }
-
 .hidden {
   position: absolute;
   overflow: hidden;
   width: 0;
   height: 0;
   pointer-events: none; }
-
-/* Icons */
-.icon {
-  display: block;
-  width: 1.5em;
-  height: 1.5em;
-  margin: 0 auto;
-  fill: currentColor; }
-
-.icon--arrow-right {
-  transform: scale3d(-1, -1, 1);
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 0.5em; }
 
 main {
   height: 100vh;
@@ -425,27 +433,6 @@ main {
   width: 100%;
   height: 100vh;
   position: relative; }
-
-.content--intro {
-  z-index: 100;
-  height: 200vh; }
-
-.content--absolute {
-  position: absolute;
-  top: 0; }
-
-.content--fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: var(--color-content-fixed);
-  /* background-image: var(--bg-img); */
-  /* can't use this as relative path until it's fixed in Chrome https://bugs.chromium.org/p/chromium/issues/detail?id=618165 */
-  background-position: 50% 50%;
-  background-size: cover; }
-
-.demo-1 .content--fixed {
-  background-image: url(../img/bg1.jpg); }
 
 .content__inner {
   width: 100%;
@@ -462,56 +449,6 @@ main {
   align-items: center;
   -ms-flex-pack: center;
   justify-content: center; }
-
-.content--intro .content__inner {
-  background: var(--color-content); }
-
-.shape-wrap {
-  position: relative;
-  z-index: 10;
-  margin: -5px 0 0 0;
-  /* Hide the gap */ }
-
-.shape {
-  height: 100vh;
-  width: 100%;
-  display: block;
-  fill: var(--color-content); }
-
-.content__title {
-  font: var(--font-alt);
-  color: var(--color-title);
-  margin: 0;
-  line-height: 1; }
-
-.enter, .explore {
-  margin: 6vh 0 0 0;
-  font-size: 1em;
-  letter-spacing: 3px;
-  cursor: pointer;
-  font-weight: bold;
-  white-space: pre;
-  color: var(--color-enter);
-  pointer-events: auto; }
-
-.enter:hover,
-.enter:focus {
-  color: var(--color-enter); }
-
-.enter span {
-  display: inline-block; }
-
-.content__text {
-  font-size: 1.85em;
-  max-width: 800px;
-  text-align: left; }
-
-.content__text a {
-  color: var(--color-menu-item); }
-
-.content__text a:hover,
-.content__text a:focus {
-  color: var(--color-menu-item-hover); }
 
 main h1 {
   color: blue; }
