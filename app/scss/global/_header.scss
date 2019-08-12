@@ -8,7 +8,6 @@
 //  loader styles
 // #####################################
 .loader {
-  display: none;
   position: fixed;
   background: black;
   top: 0;
@@ -39,7 +38,6 @@
   overflow: hidden;
   > div {
     transform-origin: center left;
-    opacity: 0;
   }
 }
 .box,.box2,.box3 {

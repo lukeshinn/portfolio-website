@@ -304,7 +304,6 @@ template {
   display: none; }
 
 .loader {
-  display: none;
   position: fixed;
   background: black;
   top: 0;
@@ -335,8 +334,7 @@ template {
   overflow: hidden; }
   .loader__text-line > div {
     -ms-transform-origin: center left;
-    transform-origin: center left;
-    opacity: 0; }
+    transform-origin: center left; }
 
 .box, .box2, .box3 {
   width: 100px;
