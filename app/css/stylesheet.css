@@ -333,6 +333,8 @@ template {
 .loader__text-line {
   overflow: hidden; }
   .loader__text-line > div {
+    -ms-transform: 'matrix(1.00,0.07,-0.07,1.00,0,75)';
+    transform: 'matrix(1.00,0.07,-0.07,1.00,0,75)';
     -ms-transform-origin: center left;
     transform-origin: center left; }
 
