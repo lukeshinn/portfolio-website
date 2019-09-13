@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-
   <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Luke Shinn</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!---------START: Styles Block--------->
     <!--build:css css/styles.min.css-->
     <link rel="stylesheet" href="css/stylesheet.css">
-    <!--<script>document.documentElement.className = 'js';</script>-->
     <!--endbuild-->
+    <!---------END: Styles Block--------->
   </head>
 
-  <body class="demo-1 loading">
 
+
+
+
+  <body class="demo-1 loading">
     <div class="loader">
       <div class="loader__bg"></div>
       <div class="loader__text">
@@ -26,7 +29,13 @@
         </div>
       </div>
     </div>
-
+    <nav class="nav nav--left"><a href="/"><h1>Giacomo Mottin</h1></a></nav>
+    <nav class="nav nav--right">
+      <ul>
+        <li class="showAbout" style="transform: matrix(1, 0, 0, 1, 0, 0);"><a href="javascript:;" title="About"><span>About</span></a></li>
+        <li class="hideAbout" style="transform: matrix(1, 0, 0, 1, 0, 0);"><a href="javascript:;" title="Back"><span>Back</span></a></li>
+      </ul>
+    </nav>
     <main id="main">
       <div class="content">
         <div class="content__inner">
@@ -37,7 +46,16 @@
         </div>
       </div>
     </main>
-
+    <div class="about">
+      <div class="about_content">
+        <h1>About Content</h1>
+      </div>
+    </div>
+    <div class="revealer revealer--cornertopright">
+      <div class="revealer__layer"></div>
+      <div class="revealer__layer"></div>
+    </div>
+    <!---------START:Script Block--------->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <!--build:js js/main.min.js -->
     <script src="js/lib/imagesloaded.min.js"></script>
@@ -45,6 +63,11 @@
     <script src="js/lib/charming.min.js"></script>
     <script src="js/site.min.js"></script>
     <!-- endbuild -->
-  </body>
+    <!---------END: Script Block--------->
 
+
+
+
+
+  </body>
 </html>

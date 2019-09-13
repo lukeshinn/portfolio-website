@@ -11,14 +11,18 @@
 
 
 {
+  const DOM = {};
   const introTextLine1 = document.body.querySelector(".loader__text-line--1 > div")
   const introTextLine2 = document.body.querySelector(".loader__text-line--2 > div")
   const introBackground = document.body.querySelector(".loader")
   const body = document.getElementsByTagName("BODY")[0];
+  DOM.about = document.querySelector('.showAbout');
+  DOM.revealer = document.querySelector('.revealer');
 
 
   const init = () => {
-    introductionTextController()
+    //introductionTextController()
+    DOM.about.addEventListener('click', showAbout);
   };
 
   // Introduction Text
@@ -81,6 +85,13 @@
     animateIntro(introLine1, introLine2, introBg)
 
   }// end introductionTextController
+
+  // showAbout
+  // #####################################
+  // //
+  const showAbout = () => {
+    DOM.revealer.classList.toggle('revealer-animate');
+ }
 
   //  AnimateIntro
   // #####################################

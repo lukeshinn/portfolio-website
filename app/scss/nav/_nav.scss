@@ -1,0 +1,26 @@
+.nav {
+    position: fixed;
+    top: 3rem;
+    z-index: 100;
+    overflow: hidden;
+    h1 {
+      font-size: 1rem;
+    }
+    a,a:link,a:visited {
+      font-family: $font-family-1;
+      font-weight: bold;
+    }
+    ul {
+      height: 1rem;
+      margin: 0;
+      list-style: none;
+    }
+}
+
+.nav--left {
+  left: 3rem;
+}
+
+.nav--right {
+  right: 3rem;
+}
