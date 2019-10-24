@@ -2,42 +2,70 @@
 // Header
 //##############################################################################
 
+@keyframes reveal-bottom-left-3-1 {
+  0% {
+    transform: translate3d(0, -200%, 0);
+  }
+  25%, 75% {
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes reveal-bottom-left-3-2 {
+  0%, 12.5% {
+    transform: translate3d(0, -100%, 0);
+  }
+  37.5%, 62.5% {
+    transform: translate3d(0, -100%, 0);
+  }
+  87.5%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes reveal-bottom-left-3-3 {
+  0%, 25% {
+    transform: translate3d(0, -200%, 0);
+  }
+  75%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
 
 // Page revealer styles
 // #####################################
-@keyframes anim-effect-3-1 {
+@keyframes reveal-top-right-3-1 {
   0% {
     transform: translate3d(0, 0, 0);
   }
   25%, 75% {
     transform: translate3d(0, -100%, 0);
-    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
   }
   100% {
     transform: translate3d(0, -200%, 0);
   }
 }
 
-@keyframes anim-effect-3-2 {
+@keyframes reveal-top-right-3-2 {
   0%, 12.5% {
     transform: translate3d(0, 0, 0);
   }
   37.5%, 62.5% {
     transform: translate3d(0, -100%, 0);
-    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
   }
   87.5%, 100% {
-    transform: translate3d(0, -200%, 0);
+    transform: translate3d(0, -100%, 0);
   }
 }
-@keyframes anim-effect-3-3 {
-	0%, 25% {
-		transform: translate3d(0, 0, 0);
-		animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000);
-	}
-	75%, 100% {
-		transform: translate3d(0, -200%, 0);
-	}
+@keyframes reveal-top-right-3-3 {
+  0%, 25% {
+    transform: translate3d(0, 0, 0);
+  }
+  75%, 100% {
+    transform: translate3d(0, -200%, 0);
+  }
 }
 .revealer {
   width: 100vw;
@@ -46,11 +74,10 @@
   z-index: 1000;
   pointer-events: none;
   opacity: 0;
-  //transform: translate3d(-50%, -50%, 0px) rotate3d(0, 0, 1, -135deg) translate3d(0px, 1437.81px, 0px);
-
 }
 
-.revealer-animate {
+.revealer-animate,
+.revealer-close {
   opacity: 1;
 }
 
@@ -59,52 +86,59 @@
 .revealer--cornertopright,
 .revealer--cornerbottomleft,
 .revealer--cornerbottomright {
-	top: 50%;
-	left: 50%;
+  top: 50%;
+  left: 50%;
 }
 
 .revealer--top,
 .revealer--bottom {
-	left: 0;
+  left: 0;
 }
 
 .revealer--right,
 .revealer--left {
-	top: 50%;
-	left: 50%;
+  top: 50%;
+  left: 50%;
 }
 
 .revealer--top {
-	bottom: 100%;
+  bottom: 100%;
 }
 
 .revealer--bottom {
-	top: 100%;
+  top: 100%;
 }
 
 .revealer__layer {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: #ddd;
-    &:nth-child(2) {
-      background: red;
-    }
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #ddd;
+    //transform: translate3d(0, -200%, 0);
+  &:nth-child(2) {
+    background: red;
+  }
 }
 
 
 
 .revealer-animate .revealer__layer {
-  animation: anim-effect-3-1 1.5s cubic-bezier(0.550, 0.055, 0.675, 0.190) forwards;
+  animation: reveal-top-right-3-1 1.5s cubic-bezier(0.550, 0.055, 0.675, 0.190) forwards;
   &:nth-child(2) {
-    animation-name: anim-effect-3-2;
+    animation-name: reveal-top-right-3-2;
   }
   &:nth-child(3) {
-    animation-name: anim-effect-3-3;
+    animation-name: reveal-top-right-3-3;
   }
+}
 
+.revealer-close .revealer__layer {
+  animation: reveal-bottom-left-3-1 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards ; // easeInOurCirc
+  &:nth-child(2) {
+    animation-name: reveal-bottom-left-3-2;
+  }
 }
 
 //  loader styles

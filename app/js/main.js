@@ -94,10 +94,17 @@
     var pageDiagonal = Math.sqrt(Math.pow(winsize.width, 2) + Math.pow(winsize.height, 2));
     widthVal = heightVal = pageDiagonal + 'px';
     var transform = transform = 'translate3d(-50%, -50%, 0px) rotate3d(0, 0, 1, -135deg) translate3d(0px,' + widthVal +', 0px)';
-    DOM.revealer.classList.toggle('revealer-animate');
     DOM.revealer.style.width = widthVal;
     DOM.revealer.style.height = heightVal;
-DOM.revealer.style.WebkitTransform = DOM.revealer.style.transform = transform;
+    DOM.revealer.style.WebkitTransform = DOM.revealer.style.transform = transform;
+    if(DOM.revealer.classList.contains('revealer-animate')) {
+      DOM.revealer.classList.add('revealer-close');
+    }
+    else {
+      DOM.revealer.classList.remove('revealer-close');
+    }
+
+    DOM.revealer.classList.toggle('revealer-animate');
   }
 
   //  AnimateIntro
