@@ -16,13 +16,14 @@
   const introTextLine2 = document.body.querySelector(".loader__text-line--2 > div")
   const introBackground = document.body.querySelector(".loader")
   const body = document.getElementsByTagName("BODY")[0];
-  DOM.about = document.querySelector('.showAbout');
+  DOM.showAbout = document.querySelector('li.showAbout');
+  DOM.about = document.querySelector('.about');
   DOM.revealer = document.querySelector('.revealer');
 
 
   const init = () => {
     //introductionTextController()
-    DOM.about.addEventListener('click', showAbout);
+    DOM.showAbout.addEventListener('click', () => {setRevealer(), toggleRevealClass()});
   };
 
   // Introduction Text
@@ -86,25 +87,46 @@
 
   }// end introductionTextController
 
-  // showAbout
+  // Set Revealer
   // #####################################
-  // //
+  //
   var winsize = { width : window.innerWidth, height : window.innerHeight }
-  const showAbout = () => {
+  const setRevealer = () => {
     var pageDiagonal = Math.sqrt(Math.pow(winsize.width, 2) + Math.pow(winsize.height, 2));
     widthVal = heightVal = pageDiagonal + 'px';
     var transform = transform = 'translate3d(-50%, -50%, 0px) rotate3d(0, 0, 1, -135deg) translate3d(0px,' + widthVal +', 0px)';
     DOM.revealer.style.width = widthVal;
     DOM.revealer.style.height = heightVal;
     DOM.revealer.style.WebkitTransform = DOM.revealer.style.transform = transform;
-    if(DOM.revealer.classList.contains('revealer-animate')) {
-      DOM.revealer.classList.add('revealer-close');
+
+  }
+
+
+  // Toggle Reveal Class
+  // #####################################
+  // toggles classes for revealer and about animations
+  var revealerOpenClass = 'revealer-open';
+  var revealerCloseClass = 'revealer-close';
+  var aboutOpenClass = 'reveal-about';
+  var aboutCloseClass = 'hide-about';
+
+  const toggleRevealClass = () => {
+    if(DOM.revealer.classList.contains(revealerOpenClass) === false) {
+      DOM.revealer.classList.add(revealerOpenClass);
+      DOM.revealer.classList.remove(revealerCloseClass);
     }
     else {
-      DOM.revealer.classList.remove('revealer-close');
+      DOM.revealer.classList.remove(revealerOpenClass);
+      DOM.revealer.classList.add(revealerCloseClass);
     }
-
-    DOM.revealer.classList.toggle('revealer-animate');
+    if(DOM.about.classList.contains(aboutOpenClass) === false) {
+      DOM.about.classList.add(aboutOpenClass);
+      DOM.about.classList.remove(aboutCloseClass);
+    }
+    else {
+      DOM.about.classList.remove(aboutOpenClass);
+      DOM.about.classList.add(aboutCloseClass);
+    }
   }
 
   //  AnimateIntro
